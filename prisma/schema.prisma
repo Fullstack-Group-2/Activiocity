@@ -10,16 +10,16 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Users {
+model User {
   id         Int          @id @default(autoincrement())
   username   String       @unique
   password   String
-  Activities Activities[]
-  Reviews    Reviews[]
-  Comments   Comments[]
+  Activities Activity[]
+  Reviews    Review[]
+  Comments   Comment[]
 }
 
-model Activities {
+model Activity {
   id             Int       @id @default(autoincrement())
   title          String
   description    String
@@ -28,26 +28,26 @@ model Activities {
   isWet          Boolean
   rating         Int
   imageURL       String
-  Users          Users[]
-  Reviews        Reviews[]
+  Users         User[]
+  Reviews        Review[]
 }
 
-model Reviews {
+model Review {
   id            Int        @id @default(autoincrement())
-  user_id       Users      @relation(fields: [usersId], references: [id])
-  activities_id Activities @relation(fields: [activitiesId], references: [id])
-  comment       Comments[]
+  user_id       User     @relation(fields: [userId], references: [id])
+  activity_id Activity @relation(fields: [activityId], references: [id])
+  comments      Comment[]
   rating        Int
   review        String
-  usersId       Int
-  activitiesId  Int
+  userId       Int
+  activityId  Int
 }
 
-model Comments {
+model Comment {
   id        Int     @id @default(autoincrement())
-  user_id   Users   @relation(fields: [usersId], references: [id])
-  review_id Reviews @relation(fields: [reviewsId], references: [id])
+  user_id   User   @relation(fields: [userId], references: [id])
+  review_id Review @relation(fields: [reviewId], references: [id])
   comment   String
-  usersId   Int
-  reviewsId Int
+  userId   Int
+  reviewId Int
 }
