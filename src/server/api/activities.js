@@ -24,4 +24,60 @@ router.get("/:id", async (req, res) => {
   res.send(activity || {});
 });
 
+//create new activity
+router.post("/", async (req, res) => {
+  const newActivity = req.body;
+
+  if (!req.user) {
+    res.sendStatus(401);
+  } else {
+    try {
+      const result = await prisma.activity.create({
+        data: newActivtiy,
+      });
+      res.send(result);
+    } catch (err) {
+      res.send(err);
+    }
+  }
+});
+
+//modify activity (used patch so it only updates what is changed)
+router.patch("/", async (re, res) => {
+  const editActivity = req.body;
+
+  if (!req.user) {
+    res.sendStatus(401);
+  } else {
+    try {
+      const updatedresult = await prisma.activity.patch({
+        data: editActivity,
+      });
+      res.send(result);
+    } catch (err) {
+      res.send(err);
+    }
+  }
+});
+
+//delete activity
+router.delete("/", async (req, res) => {
+  const deleteActivity = req.body;
+
+  if (!req.user) {
+    res.sendStatus(401);
+  } else {
+    try {
+      const result = await prisma.activity.delete({
+        where: {
+          id: [id],
+        },
+      });
+      res.send(result);
+    } catch (err) {
+      res.send(err);
+    }
+  }
+});
+
 module.exports = router;
