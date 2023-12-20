@@ -9,10 +9,10 @@ const Navbar = ({user}) => {
             {user === 'administrator' ?
             <div>
                 <h2>Adminitrator Dashboard</h2>
-                <Link>
+                <Link to="/Users">
                 <button>All Users</button>
                 </Link>
-                <Link>
+                <Link to="/">
                 <button>All Activities</button>
                 </Link>
                 <Link>
@@ -29,7 +29,7 @@ const Navbar = ({user}) => {
             <div>
             <div>
                 <h2>Logged In User Dashboard</h2>
-                <Link>
+                <Link to="/">
                 <button>All Activities</button>
                 </Link>
                 <Link>
