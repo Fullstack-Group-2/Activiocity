@@ -6,7 +6,6 @@ import AllActivities from "./components/AllActivities";
 import Register from "./components/Register";
 import Users from "./components/Users";
 import "./App.css";
-import UserReviews from "./components/UserReviews";
 
 function App() {
   const [user, setUser] = useState('user')
@@ -19,7 +18,6 @@ function App() {
         <Route path="/Login" element={<Login/>} />
         <Route path="/Register" element={<Register/>} />
         <Route path="/Users" element={<Users />} />
-        <Route path="/UserReviews" element={<UserReviews />} />
       </Routes>
     </div>
   );
