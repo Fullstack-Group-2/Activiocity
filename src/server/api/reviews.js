@@ -40,3 +40,43 @@ router.post("/", async (req, res) => {
     }
   }
 });
+
+//if auth modify review
+router.patch("/", async (req, res) => {
+  const editReview = req.body;
+
+  if (!req.user) {
+    res.sendStatus(401);
+  } else {
+    try {
+      const updatedReview = await prisma.review.patch({
+        data: editReview,
+      });
+      res.send(result);
+    } catch (err) {
+      res.send(err);
+    }
+  }
+});
+
+//if auth delete review
+router.delete("/", async (req, res) => {
+  const deleteReview = req.body;
+
+  if (!req.user) {
+    res.sendStatus(401);
+  } else {
+    try {
+      const result = await prisma.review.delete({
+        where: {
+          id: [id],
+        },
+      });
+      res.send(result);
+    } catch (err) {
+      res.send(err);
+    }
+  }
+});
+
+module.exports = router;
