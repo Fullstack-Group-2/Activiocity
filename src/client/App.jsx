@@ -7,10 +7,11 @@ import Register from "./components/Register";
 import "./App.css";
 
 function App() {
+  const [user, setUser] = useState('')
 
   return (
     <div className="App">
-      <Navbar/>
+      <Navbar user={user}/>
       <Routes>
         <Route path="/" element={<AllActivities/>} />
         <Route path="/Login" element={<Login/>} />
