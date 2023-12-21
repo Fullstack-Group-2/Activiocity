@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
-const singleActivities = () => {
+const SingleActivities = () => {
   const { id } = useParams();
   const [activity, setActivity] = useState({});
   console.log("activity", activity);
@@ -39,4 +39,4 @@ const singleActivities = () => {
 
 
 
-export default singleActivities;
+export default SingleActivities;
