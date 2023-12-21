@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "seed": "npx prisma migrate reset && node seed.cjs",
     "dev": "nodemon src/server/main.cjs -w src/server",
     "start": "NODE_ENV=production node src/server/main.cjs",
     "build": "vite build"
