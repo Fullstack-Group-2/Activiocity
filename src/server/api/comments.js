@@ -58,3 +58,25 @@ router.patch("/", async (re, res) => {
     }
   }
 });
+
+//delete comment ADD FUNCTION FOR ADMIN
+router.delete("/", async (req, res) => {
+  const deleteComment = req.body;
+
+  if (!req.user) {
+    res.sendStatus(401);
+  } else {
+    try {
+      const result = await prisma.comment.delete({
+        where: {
+          id: [id],
+        },
+      });
+      res.send(result);
+    } catch (err) {
+      res.send(err);
+    }
+  }
+});
+
+module.exports = router;
