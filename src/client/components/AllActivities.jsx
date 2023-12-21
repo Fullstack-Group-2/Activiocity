@@ -8,7 +8,7 @@ const AllActivities = () => {
 
   const filtered = activities.filter(
     (activity) =>
-      activity.name.includes(search)
+      activity.title.includes(search)
   );
 
   useEffect(() => {
@@ -38,7 +38,7 @@ const AllActivities = () => {
           ? activities.map((activities) => (
               <div key={activities.id} style={{ border: "2px solid black" }}>
                 <Link to={`/${activities.id}`}>
-                  <h3>Name: {activities.name}</h3>
+                  <h3>Name: {activities.title}</h3>
                 </Link>
                 <h3>Description: {activities.description}</h3>
               </div>
@@ -46,7 +46,7 @@ const AllActivities = () => {
           : filtered.map((activities) => (
               <div key={activities.id} style={{ border: "2px solid black" }}>
                 <Link to={`/${activities.id}`}>
-                  <h3>Name: {activities.name}</h3>
+                  <h3>Name: {activities.title}</h3>
                 </Link>
                 <h3>Description: {activities.description}</h3>
               </div>
