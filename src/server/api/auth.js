@@ -11,12 +11,15 @@ router.post("/register", async (req, res, next) => {
     const user = await.prisma.user.create({
       data: {
         username,
-        password: hashedPassword;
+        password: hashedPassword,
       }
     });
     const token=jwt.sign(
-      {id: user.id, username: user.username};
+      {id: user.id, username: user.username},
       process.env.JWT_SECRET
     );
+  }catch(err){
+    console.error(err);
   }
 });
+module.exports = router;
