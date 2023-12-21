@@ -14,9 +14,15 @@ router.get("/", async (req, res, next) => {
 //get individual comment from db
 router.get("/:id", async (req, res) => {
   const commentId = parseInt(req.params.id);
-  const comment = await prisma.comment.findUnique({
-    where: { id: commentId },
-  });
+  try{
+    const comment = await prisma.comment.findUnique({
+      where: { id: commentId },
+    });
+    res.send(comment);
+  }catch (err){
+    res.send(err);
+  }
+  
 });
 //create a new comment WILL NEED TO ADD ADMIN FUNCTION TO THIS
 router.post("/", async (req, res) => {
@@ -44,7 +50,7 @@ router.patch("/", async (re, res) => {
       const updatedresult = await prisma.comment.patch({
         data: editComment,
       });
-      res.send(result);
+      res.send(updatedresult);
     } catch (err) {
       res.send(err);
     }
