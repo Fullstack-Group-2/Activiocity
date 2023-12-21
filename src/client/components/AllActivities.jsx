@@ -16,6 +16,7 @@ const AllActivities = () => {
       try {
         const { data: foundActivities } = await axios.get("/api/activities");
         setActivities(foundActivities);
+        console.log(foundActivities);
       } catch (error) {
         console.error(error);
       }
