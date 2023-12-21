@@ -24,7 +24,7 @@ const createComment = () => {
     <div>
       <h2>Comment</h2>
       <input value={comment} onChange={(e) => setComment(e.target.value)} />
-      <button onClick={createComment}>Send</button>
+      <button onClick={handleCreateComment}>Send</button>
     </div>
   );
 };
