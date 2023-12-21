@@ -10,7 +10,7 @@ const Register = () => {
   //need to place route in the handleRegister function
   async function handleRegister() {
     try {
-      const { data: token } = await axios.post("PUT ROUTE HERE", {
+      const { data: token } = await axios.post("auth/register", {
         username,
         password,
       });
