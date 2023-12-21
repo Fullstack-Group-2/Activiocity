@@ -8,7 +8,7 @@ router.get("/", async (req, res, next) => {
   try {
     const activities = await prisma.activity.findMany();
 
-    res.send(activity);
+    res.send(activities);
   } catch (err) {
     console.error(err);
   }
@@ -33,7 +33,7 @@ router.post("/", async (req, res) => {
   } else {
     try {
       const result = await prisma.activity.create({
-        data: newActivtiy,
+        data: newActivity,
       });
       res.send(result);
     } catch (err) {
@@ -53,7 +53,7 @@ router.patch("/", async (re, res) => {
       const updatedresult = await prisma.activity.patch({
         data: editActivity,
       });
-      res.send(result);
+      res.send(updatedresult);
     } catch (err) {
       res.send(err);
     }
