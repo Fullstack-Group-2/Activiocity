@@ -1,18 +1,16 @@
 
-const { PrismaClient } = require("@prisma/client");
-const prisma = require("./src/server/client.js");
+const prisma = require("./src/server/client.cjs");
 const bcrypt = require("bcrypt");
 
 
-const prisma = new PrismaClient();
 const saltRounds = 5;
 
-const users = [
+/*const users = [
   { username: "Ahmad", password: "password" },
   { username: "Steven", password: "password" },
   { username: "Michael", password: "password" },
 ];
-
+*/
 async function seed() {
   const hashedAhmad = await
     bcrypt.hash("password",saltRounds)
@@ -49,7 +47,7 @@ async function seed() {
       seasonCategory: "Winter",
       isWet: true,
       rating: 4,
-      imgURL: "add some img here"
+      imageURL: "add some img here"
     },
   });
 
@@ -61,7 +59,7 @@ async function seed() {
       seasonCategory: "Summer",
       isWet: true,
       rating: 5,
-      imgURL: "add some img here"
+      imageURL: "add some img here"
     },
   });
 
@@ -73,7 +71,7 @@ async function seed() {
       seasonCategory: "Winter",
       isWet: true,
       rating: 3,
-      imgURL: "add some img here"
+      imageURL: "add some img here"
     },
   });
   const camping = await prisma.activity.create({
@@ -84,58 +82,61 @@ async function seed() {
       seasonCategory: "Spring",
       isWet: false,
       rating: 2,
-      imgURL: "add some img here"
+      imageURL: "add some img here"
     },
   });
 
   const review1 = await prisma.review.create({
     data: {
-      message: "I didn't like the camp site much",
       userId: Ahmad.id,
       activityId: camping.id,
+      rating: 2,
+      review: "lskdfjsdl"
     },
   });
 
   const review2 = await prisma.review.create({
     data: {
-      message: "That was fun!!",
       userId: Steven.id,
       activityId: snowboarding.id,
+      rating: 5,
+      review: "laskdjfldsakjf"
     },
   });
 
   const review3 = await prisma.review.create({
     data: {
-      message: "I really enjoyed it 10/10",
       userId: Michael.id,
       activityId: skiing.id,
+      rating: 3,
+      review: "sldkfjsd"
     },
   });
 
   const comment1 = await prisma.comment.create({
     data: {
-      message: "I really enjoyed skiing",
       userId: Steven.id,
-      review3
+      reviewId: review1.id,
+      comment: "lkfjoierj"
     },
   });
 
   const comment2 = await prisma.comment.create({
     data: {
-      message: "It was okay",
       userId: Ahmad.id,
-      review2
+      reviewId: review2.id,
+      comment: "sdlkjdsglj"
     },
   });
 
   const comment3 = await prisma.comment.create({
     data: {
-      message: "It was okay",
       userId: Steven.id,
-      review1
+      reviewId: review2.id,
+      comment: "weoifsdlfkhj"
     },
   });
-
+console.log("DATABASE SEEDED SUCCESSFULLY")
 }
 seed()
   .then(async () => {
