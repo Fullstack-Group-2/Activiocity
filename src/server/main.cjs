@@ -12,6 +12,7 @@ app.use(express.urlencoded({extended: true}));
 app.use("/api", require("../server/api/index.cjs"));
 app.use("/auth", require("../server/auth/index.cjs"));
 
-ViteExpress.listen(app, 3000, () =>
+const PORT = process.env.PORT || 3000;
+ViteExpress.listen(app, PORT, () =>
   console.log("Server is listening on port 3000...")
 );
