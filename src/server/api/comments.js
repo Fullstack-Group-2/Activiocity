@@ -22,3 +22,39 @@ router.get("/:id", async (req, res) => {
     where: { id: commentId },
   });
 });
+
+//create a new comment WILL NEED TO ADD ADMIN FUNCTION TO THIS
+router.post("/", async (req, res) => {
+  const newComment = req.body;
+
+  if (!req.user) {
+    res.sendStatus(401);
+  } else {
+    try {
+      const result = await prisma.comment.create({
+        data: newComment,
+      });
+      res.send(result);
+    } catch (err) {
+      res.send(err);
+    }
+  }
+});
+
+//modify a comment in the db ADMIN WILL ALSO NEED ACCESS TO THIS FUNCTION
+router.patch("/", async (re, res) => {
+  const editComment = req.body;
+
+  if (!req.user) {
+    res.sendStatus(401);
+  } else {
+    try {
+      const updatedresult = await prisma.comment.patch({
+        data: editComment,
+      });
+      res.send(result);
+    } catch (err) {
+      res.send(err);
+    }
+  }
+});
