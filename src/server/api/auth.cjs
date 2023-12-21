@@ -29,12 +29,10 @@ router.post("/register", async (req, res, next) => {
 router.post("/login", async (req, res, next) => {
   const { username, password } = req.body;
   if (!username || !password) {
-    res
-      .status(418)
-      .send({
-        message:
-          "Access DENIED!!!!: Incorrect USERNAME or PASSWORD: Not one of the kool kidz!",
-      });
+    res.status(418).send({
+      message:
+        "Access DENIED!!!!: Incorrect USERNAME or PASSWORD: Not one of the kool kidz!",
+    });
     return;
   }
   try {
