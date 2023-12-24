@@ -12,12 +12,12 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: aquamarine;
+  background-color: navy;
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: coral;
+  border-color: maroon;
 }
 button:focus,
 button:focus-visible {
@@ -25,27 +25,27 @@ button:focus-visible {
 }
 
 #activityBox{
-  background-color: aqua;
+  background-color: navy;
   border-radius: 5px;
 }
 
 h1{
-  color: aqua;
+  color: burlywood;
 }
 
 h2{
-  color:pink;
+  color:navy;
 }
 
 
 /* a is all the activity titles and got rid of the underlining after clicking*/
 a{
   font-weight: 500;
-  color: coral;
+  color: maroon;
   text-decoration: inherit;
 }
 a:hover{
-  color:coral;
+  color:darkolivegreen;
 }
 
 #activityDesc{
