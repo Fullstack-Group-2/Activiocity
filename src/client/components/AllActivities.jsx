@@ -39,7 +39,7 @@ const AllActivities = () => {
                 <Link to={`/${activities.id}`}>
                   <h3 id="activityName">Name: {activities.title}</h3>
                 </Link>
-                <h3>Description: {activities.description}</h3>
+                <h3 id="activityDesc">Description: {activities.description}</h3>
               </div>
             ))
           : filtered.map((activities) => (
