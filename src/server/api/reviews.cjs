@@ -1,12 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const prisma = require("../client");
+const prisma = require("../client.cjs");
 const { verify } = require("../utils.cjs");
 
 //get all reviews from the database
 router.get("/", async (req, res) => {
   try {
-    const reviews = await prisma.reviews.findMany();
+    const reviews = await prisma.review.findMany();
 
     res.send(reviews);
   } catch (err) {

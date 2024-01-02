@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const prisma = require("../client");
-const { verify } = require("../utils");
+const prisma = require("../client.cjs");
+const { verify } = require("../utils.cjs");
 //grab the comments from the database
 router.get("/", async (req, res, next) => {
   try {
