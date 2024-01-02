@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const prisma = require("../client");
+const prisma = require("../client.cjs");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
@@ -41,7 +41,7 @@ router.post("/login", async (req, res, next) => {
         username,
       },
     });
-
+    console.log(user);
     const isValid = await bcrypt.compare(password, user.password);
 
     if (!isValid) {
@@ -51,12 +51,12 @@ router.post("/login", async (req, res, next) => {
       return;
     }
     const token = jwt.sign(
-      { id: user.id, username: user.username },
+      { id: user.id, username: user.username,},
       process.env.JWT_SECRET
     );
-    res.status(200).send({ token });
+    res.status(200).send({ token , user});
   } catch (err) {
-    console.err(err);
+    console.error(err);
   }
 });
 

@@ -2,7 +2,7 @@ import React from "react";
 
 const Users = () => {
     return (
-        <h1>All Users</h1>
+        <h1>User Page</h1>
     );
 }
 export default Users;
