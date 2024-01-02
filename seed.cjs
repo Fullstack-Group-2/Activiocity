@@ -84,7 +84,7 @@ async function seed() {
       isWet: false,
       rating: 2,
       imageURL:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSh8x65G9aVMi6VVJBI5NKQXLkaIhDKYsrlLA&usqp=CAU",
+        "https://media.cntraveler.com/photos/5ef635b25a986932f31237d9/16:9/w_2560%2Cc_limit/CampingGear-2020-GettyImages-sb10070057l-001.jpg",
     },
   });
 
