@@ -1,7 +1,5 @@
-
 const prisma = require("./src/server/client.cjs");
 const bcrypt = require("bcrypt");
-
 
 const saltRounds = 5;
 
@@ -12,8 +10,7 @@ const saltRounds = 5;
 ];
 */
 async function seed() {
-  const hashedAhmad = await
-    bcrypt.hash("password",saltRounds)
+  const hashedAhmad = await bcrypt.hash("password", saltRounds);
   const Ahmad = await prisma.user.create({
     data: {
       username: "Ahmad",
@@ -22,8 +19,7 @@ async function seed() {
     },
   });
 
-  const hashedSteven = await
-    bcrypt.hash("password",saltRounds)
+  const hashedSteven = await bcrypt.hash("password", saltRounds);
   const Steven = await prisma.user.create({
     data: {
       username: "Steven",
@@ -32,8 +28,7 @@ async function seed() {
     },
   });
 
-  const hashedMichael = await 
-  bcrypt.hash("password",saltRounds) 
+  const hashedMichael = await bcrypt.hash("password", saltRounds);
   const Michael = await prisma.user.create({
     data: {
       username: "Michael",
@@ -50,7 +45,8 @@ async function seed() {
       seasonCategory: "Winter",
       isWet: true,
       rating: 4,
-      imageURL: "add some img here"
+      imageURL:
+        "https://cdn.skimag.com/wp-content/uploads/2023/07/GettyImages-1043796250-scaled.jpg",
     },
   });
 
@@ -62,7 +58,8 @@ async function seed() {
       seasonCategory: "Summer",
       isWet: true,
       rating: 5,
-      imageURL: "add some img here"
+      imageURL:
+        "https://i0.wp.com/www.healthfitnessrevolution.com/wp-content/uploads/2015/04/ThinkstockPhotos-114404419.jpg?fit=730%2C480&ssl=1",
     },
   });
 
@@ -74,7 +71,8 @@ async function seed() {
       seasonCategory: "Winter",
       isWet: true,
       rating: 3,
-      imageURL: "add some img here"
+      imageURL:
+        "https://asomammoth.com/wp-content/uploads/2023/05/Snowboarders-scaled.jpeg",
     },
   });
   const camping = await prisma.activity.create({
@@ -85,7 +83,8 @@ async function seed() {
       seasonCategory: "Spring",
       isWet: false,
       rating: 2,
-      imageURL: "add some img here"
+      imageURL:
+        "https://fwp.mt.gov/binaries/content/gallery/mtfwpproject/fwpimageset/smallhero/camping_small_hero.jpg/camping_small_hero.jpg/mtfwpproject%3AHeroSmall",
     },
   });
 
@@ -94,7 +93,7 @@ async function seed() {
       userId: Ahmad.id,
       activityId: camping.id,
       rating: 2,
-      review: "lskdfjsdl"
+      review: "lskdfjsdl",
     },
   });
 
@@ -103,7 +102,7 @@ async function seed() {
       userId: Steven.id,
       activityId: snowboarding.id,
       rating: 5,
-      review: "laskdjfldsakjf"
+      review: "laskdjfldsakjf",
     },
   });
 
@@ -112,7 +111,7 @@ async function seed() {
       userId: Michael.id,
       activityId: skiing.id,
       rating: 3,
-      review: "sldkfjsd"
+      review: "sldkfjsd",
     },
   });
 
@@ -120,7 +119,7 @@ async function seed() {
     data: {
       userId: Steven.id,
       reviewId: review1.id,
-      comment: "lkfjoierj"
+      comment: "lkfjoierj",
     },
   });
 
@@ -128,7 +127,7 @@ async function seed() {
     data: {
       userId: Ahmad.id,
       reviewId: review2.id,
-      comment: "sdlkjdsglj"
+      comment: "sdlkjdsglj",
     },
   });
 
@@ -136,10 +135,10 @@ async function seed() {
     data: {
       userId: Steven.id,
       reviewId: review2.id,
-      comment: "weoifsdlfkhj"
+      comment: "weoifsdlfkhj",
     },
   });
-console.log("DATABASE SEEDED SUCCESSFULLY")
+  console.log("DATABASE SEEDED SUCCESSFULLY");
 }
 seed()
   .then(async () => {
