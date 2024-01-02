@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const prisma = require("../client.cjs");
+const bcrypt = require("bcrypt");
+// const jwt = require("jsonwebtoken");
 
 // all users.....  /auth/user
 router.get("/", async (req, res, next) => {
@@ -25,26 +27,25 @@ router.get("/", async (req, res, next) => {
 
   // create a user
   router.post("/register", async (req, res) => {
-    const newUser = req.body;
-  
-    if (!req.user) {
-      res.sendStatus(401);
-    } else {
+    const {username, password} = req.body;
+    const saltRounds = 5;
       try {
+        const hashedPassword = await 
+        bcrypt.hash(password,saltRounds)
         const result = await prisma.user.create({
           data: {
-                username:"",
-                password:""
-            }
+               username,
+               password: hashedPassword,
+            },
         });
         res.send(result);
       } catch (err) {
         res.send(err);
       }
     }
-  });
+  );
 
-  // update an user
+   // update an user
   router.patch("/", async (req, res) => {
     const editUser = req.body;
   
