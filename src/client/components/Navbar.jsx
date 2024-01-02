@@ -1,12 +1,22 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Navbar = ({ user }) => {
-  const [searchterm, setSearchterm] = useState("");
-
+const Navbar = ({ token }) => {
   return (
     <>
-      {user === "administrator" ? (
+      {token.token === 'main' ? 
+          <div>
+            <Link to="/">
+              <button>All Activities</button>
+            </Link>
+            <Link to="/login">
+              <button>Login</button>
+            </Link>
+            <Link to="/register">
+              <button>Register</button>
+            </Link>
+          </div>
+      : token.user.isAdmin === true ? 
         <div>
           <h2>Adminitrator Dashboard</h2>
           <Link to="/Users">
@@ -25,7 +35,7 @@ const Navbar = ({ user }) => {
             <button>Delete Activity</button>
           </Link>
         </div>
-      ) : user === "user" ? (
+       :
         <div>
           <div>
             <h2>Logged In User Dashboard</h2>
@@ -57,26 +67,7 @@ const Navbar = ({ user }) => {
             </Link>
           </div>
         </div>
-      ) : (
-        <div>
-          <Link to="/">
-            <button>All Activities</button>
-          </Link>
-          <input
-            placeholder="search..."
-            value={searchterm}
-            onChange={(e) => {
-              setSearchterm(e.target.value);
-            }}
-          />
-          <Link to="/login">
-            <button>Login</button>
-          </Link>
-          <Link to="/register">
-            <button>Register</button>
-          </Link>
-        </div>
-      )}
+       }
     </>
   );
 };

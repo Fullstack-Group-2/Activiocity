@@ -15,6 +15,7 @@ async function seed() {
     data: {
       username: "Ahmad",
       password: hashedAhmad,
+      isAdmin: false,
     },
   });
 
@@ -23,6 +24,7 @@ async function seed() {
     data: {
       username: "Steven",
       password: hashedSteven,
+      isAdmin: true,
     },
   });
 
@@ -31,6 +33,7 @@ async function seed() {
     data: {
       username: "Michael",
       password: hashedMichael,
+      isAdmin: false,
     },
   });
 

@@ -1,11 +1,26 @@
 import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Login = ({setToken}) => {
+    const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleLogin = () => {
-        console.log("username: " ,username, " password: ", password);
+    const handleLogin = async()=> {
+        try {
+            const { data: info} = await axios.post("/auth/auth/login", {
+              username: username,
+              password: password,
+            });
+            localStorage.setItem("TOKEN", info.token);
+            setToken(info);
+            console.log(info);
+            if (info.user.isAdmin) navigate("/Admin");
+            else{navigate("/Users");}
+          } catch (error) {
+            console.error(error);
+          }
     }
     return (
         <>
