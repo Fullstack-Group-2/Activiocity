@@ -17,7 +17,8 @@ async function seed() {
   const Ahmad = await prisma.user.create({
     data: {
       username: "Ahmad",
-      password: hashedAhmad
+      password: hashedAhmad,
+      isAdmin: true,
     },
   });
 
@@ -27,6 +28,7 @@ async function seed() {
     data: {
       username: "Steven",
       password: hashedSteven,
+      isAdmin: true,
     },
   });
 
@@ -36,6 +38,7 @@ async function seed() {
     data: {
       username: "Michael",
       password: hashedMichael,
+      isAdmin: true,
     },
   });
 
