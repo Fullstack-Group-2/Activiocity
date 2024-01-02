@@ -30,13 +30,10 @@ const SingleActivities = () => {
         <h3>{activity.seasonCategory}</h3>
         <h3>{activity.isWet ? "Yes" : "No"}</h3>
         <h3>{activity.rating}</h3>
-        <img src={activity.imageURL}/>
-
+        <img src={activity.imageURL} width="640" height="426" />
       </div>
     </div>
   );
 };
-
-
 
 export default SingleActivities;

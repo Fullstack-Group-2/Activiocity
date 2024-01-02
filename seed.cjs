@@ -45,7 +45,8 @@ async function seed() {
       seasonCategory: "Winter",
       isWet: true,
       rating: 4,
-      imageURL: "https://cdn.skimag.com/wp-content/uploads/2023/07/GettyImages-1043796250-scaled.jpg"
+      imageURL:
+        "https://cdn.skimag.com/wp-content/uploads/2023/07/GettyImages-1043796250-scaled.jpg",
     },
   });
 
@@ -57,7 +58,8 @@ async function seed() {
       seasonCategory: "Summer",
       isWet: true,
       rating: 5,
-      imageURL: "https://i0.wp.com/www.healthfitnessrevolution.com/wp-content/uploads/2015/04/ThinkstockPhotos-114404419.jpg?fit=730%2C480&ssl=1"
+      imageURL:
+        "https://i0.wp.com/www.healthfitnessrevolution.com/wp-content/uploads/2015/04/ThinkstockPhotos-114404419.jpg?fit=730%2C480&ssl=1",
     },
   });
 
@@ -69,7 +71,8 @@ async function seed() {
       seasonCategory: "Winter",
       isWet: true,
       rating: 3,
-      imageURL: "https://asomammoth.com/wp-content/uploads/2023/05/Snowboarders-scaled.jpeg"
+      imageURL:
+        "https://asomammoth.com/wp-content/uploads/2023/05/Snowboarders-scaled.jpeg",
     },
   });
   const camping = await prisma.activity.create({
@@ -80,7 +83,8 @@ async function seed() {
       seasonCategory: "Spring",
       isWet: false,
       rating: 2,
-      imageURL:"https://asomammoth.com/wp-content/uploads/2023/05/Snowboarders-scaled.jpeg"
+      imageURL:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSh8x65G9aVMi6VVJBI5NKQXLkaIhDKYsrlLA&usqp=CAU",
     },
   });
 
