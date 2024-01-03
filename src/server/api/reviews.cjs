@@ -24,19 +24,23 @@ router.get("/:id", async (req, res) => {
 });
 
 //create new review if auth
-router.post("/", verify, async (req, res) => {
+router.post("/", verify, async (req, res, next) => {
   const newReview = req.body;
-
+  console.log("NEW REVIEW", newReview);
   if (!req.user) {
+   
     res.sendStatus(401);
   } else {
     try {
+      
       const result = await prisma.review.create({
         data: newReview,
       });
+      console.log("RESULT" , result);
       res.send(result);
     } catch (err) {
-      res.send(err);
+      console.log("ERROR", err);
+      next(err);
     }
   }
 });
