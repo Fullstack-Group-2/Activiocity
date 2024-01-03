@@ -85,6 +85,7 @@ async function seed() {
       rating: 2,
       imageURL:
         "https://fwp.mt.gov/binaries/content/gallery/mtfwpproject/fwpimageset/smallhero/camping_small_hero.jpg/camping_small_hero.jpg/mtfwpproject%3AHeroSmall",
+
     },
   });
 
