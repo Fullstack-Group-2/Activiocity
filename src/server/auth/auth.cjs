@@ -4,8 +4,6 @@ const prisma = require("../client.cjs");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
-//CANT FIX THE ROUTE IN CLIENT / REGISTER UNTIL PREVIOUS TICKET IS MERGED
-
 router.post("/register", async (req, res, next) => {
   const { username, password } = req.body;
   const saltRounds = 10;
@@ -15,12 +13,14 @@ router.post("/register", async (req, res, next) => {
       data: {
         username,
         password: hashedPassword,
+        isAdmin: false,
       },
     });
     const token = jwt.sign(
       { id: user.id, username: user.username },
       process.env.JWT_SECRET
     );
+    res.status(201).send({ token });
   } catch (err) {
     console.error(err);
   }
@@ -41,6 +41,7 @@ router.post("/login", async (req, res, next) => {
         username:username,
       },
     });
+ 
     if(!user) { res.status(401).send({message: "No User by that name. Enter valid user and password."});return;}
     else{
       const isValid = await bcrypt.compare(password, user.password);
@@ -56,6 +57,7 @@ router.post("/login", async (req, res, next) => {
       );
       res.status(200).send({ token , user});
     }  
+    
   } catch (err) {
     console.error(err);
   }

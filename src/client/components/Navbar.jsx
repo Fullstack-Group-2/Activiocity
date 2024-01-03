@@ -45,7 +45,7 @@ const Navbar = ({ token }) => {
             <Link to="">
               <button>All My Reviews</button>
             </Link>
-            <Link to="">
+            <Link to="/">
               <button>Add Review</button>
             </Link>
             <Link to="">
