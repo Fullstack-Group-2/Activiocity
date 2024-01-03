@@ -21,7 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<AllActivities />} />
         <Route path="/Login" element={<Login setToken={setToken} />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/register" element={<Register setToken={setToken} />} />
         <Route path="/Users" element={<Users />} />
         <Route path="/:id" element={<SingleActivities />} />
         <Route path="/Admin" element={<Admin />} />

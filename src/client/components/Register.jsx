@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEfffect, useRef } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -8,13 +8,12 @@ const Register = ({ setToken }) => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
 
-  //need to place route in the handleRegister function
   async function handleRegister() {
     try {
-      const { data: token } = await axios.post("auth/auth/register", {
+      const { data: token } = await axios.post("/auth/auth/register", {
         username,
         password,
-        email,
+        // isAdmin: false,
       });
       localStorage.setItem("TOKEN", token.token);
       setToken(token.token);
@@ -38,11 +37,7 @@ const Register = ({ setToken }) => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <input
-          placeholder="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+
         <button onClick={handleRegister}>Register</button>
       </div>
     </>
