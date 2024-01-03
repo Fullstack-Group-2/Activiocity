@@ -6,6 +6,7 @@ import AllActivities from "./components/AllActivities";
 import Register from "./components/Register";
 import Users from "./components/Users";
 import Admin from "./components/Admin";
+import Review from "./components/Review";
 import "./App.css";
 import SingleActivities from "./components/singleActvities";
 
@@ -25,6 +26,7 @@ function App() {
         <Route path="/Users" element={<Users />} />
         <Route path="/:id" element={<SingleActivities />} />
         <Route path="/Admin" element={<Admin />} />
+        <Route path="/reviews" element={<Review/>}/>
       </Routes>
     </div>
   );

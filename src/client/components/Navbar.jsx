@@ -38,33 +38,16 @@ const Navbar = ({ token }) => {
       ) : (
         <div>
           <div>
-            <h2>Logged In User Dashboard</h2>
+            <h2>Welcome User</h2>
             <Link to="/">
               <button>All Activities</button>
             </Link>
-            <Link to="">
-              <button>All My Reviews</button>
-            </Link>
-            <Link to="/">
-              <button>Add Review</button>
-            </Link>
-            <Link to="">
-              <button>Edit Review</button>
-            </Link>
-            <Link to="/">
-              <button>Delete Review</button>
+            <Link to="/reviews">
+              <button>All My Reviews/Comments</button>
+
             </Link>
           </div>
           <div>
-            <Link to="/">
-              <button>All My Comments</button>
-            </Link>
-            <Link to="/">
-              <button>Edit Comment</button>
-            </Link>
-            <Link to="">
-              <button>Delete Comment</button>
-            </Link>
           </div>
         </div>
       )}
