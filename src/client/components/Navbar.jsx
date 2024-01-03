@@ -1,7 +1,13 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = ({ token }) => {
+  // const navigate = useNavigate();
+  // function handleLogout() {
+  //   window.localStorage.removeItem("TOKEN");
+  //   setToken("");
+  //   navigate("/");
+  // }
   return (
     <>
       {token.token === "main" ? (
@@ -24,6 +30,9 @@ const Navbar = ({ token }) => {
           </Link>
           <Link to="/">
             <button>All Activities</button>
+            <div>
+            <button onClick>Logout</button>
+          </div>
           </Link>
           <Link>
             <button>Add Activity</button>
@@ -40,11 +49,13 @@ const Navbar = ({ token }) => {
           <div>
             <h2>Welcome User</h2>
             <Link to="/">
+              <div>
+               <button onClick>Logout</button>
+              </div>
               <button>All Activities</button>
             </Link>
             <Link to="/reviews">
               <button>All My Reviews/Comments</button>
-
             </Link>
           </div>
           <div>
