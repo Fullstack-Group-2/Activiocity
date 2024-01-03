@@ -3,7 +3,7 @@ import AllActivities from "./AllActivities";
 
 const Users = () => {
     return (
-        <h1>Users page</h1>
+        <AllActivities/>
     );
 }
 export default Users;
