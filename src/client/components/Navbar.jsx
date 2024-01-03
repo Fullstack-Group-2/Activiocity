@@ -2,12 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = ({ token }) => {
-  // const navigate = useNavigate();
-  // function handleLogout() {
-  //   window.localStorage.removeItem("TOKEN");
-  //   setToken("");
-  //   navigate("/");
-  // }
+ 
   return (
     <>
       {token.token === "main" ? (
