@@ -21,6 +21,7 @@ router.post("/register", async (req, res, next) => {
       { id: user.id, username: user.username },
       process.env.JWT_SECRET
     );
+    res.status(201).send({ token });
   } catch (err) {
     console.error(err);
   }
@@ -51,10 +52,10 @@ router.post("/login", async (req, res, next) => {
       return;
     }
     const token = jwt.sign(
-      { id: user.id, username: user.username,},
+      { id: user.id, username: user.username },
       process.env.JWT_SECRET
     );
-    res.status(200).send({ token , user});
+    res.status(200).send({ token, user });
   } catch (err) {
     console.error(err);
   }
