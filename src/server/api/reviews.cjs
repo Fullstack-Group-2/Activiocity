@@ -24,7 +24,7 @@ router.get("/:id", async (req, res) => {
 });
 
 //create new review if auth
-router.post("/", async (req, res) => {
+router.post("/", verify, async (req, res) => {
   const newReview = req.body;
 
   if (!req.user) {
@@ -42,7 +42,7 @@ router.post("/", async (req, res) => {
 });
 
 //if auth modify review
-router.patch("/", async (req, res) => {
+router.patch("/", verify, async (req, res) => {
   const editReview = req.body;
 
   if (!req.user) {
@@ -60,7 +60,7 @@ router.patch("/", async (req, res) => {
 });
 
 //if auth delete review
-router.delete("/", async (req, res) => {
+router.delete("/", verify, async (req, res) => {
   const deleteReview = req.body;
 
   if (!req.user) {

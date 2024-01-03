@@ -80,7 +80,7 @@ async function seed() {
       seasonCategory: "Spring",
       isWet: false,
       rating: 2,
-      imageURL:"https://asomammoth.com/wp-content/uploads/2023/05/Snowboarders-scaled.jpeg"
+      imageURL:"https://fwp.mt.gov/binaries/content/gallery/mtfwpproject/fwpimageset/smallhero/cam[…]_small_hero.jpg/camping_small_hero.jpg/mtfwpproject%3AHeroSmall"
     },
   });
 
