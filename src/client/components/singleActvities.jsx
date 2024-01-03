@@ -34,7 +34,7 @@ const SingleActivities = () => {
         <h3>
           This activity has a popularity rating of {activity.rating} out of 5
         </h3>
-        <img src={activity.imageURL} />
+        <img src={activity.imageURL} width="640" height="426" />
       </div>
     </div>
   );
