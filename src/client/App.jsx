@@ -28,7 +28,10 @@ function App() {
         <Route path="/Users" element={<Users />} />
         <Route path="/:id" element={<SingleActivities token={token}/>} />
         <Route path="/Admin" element={<Admin />} />
-        <Route path="/reviews" element={<Review/>}/>
+        <Route
+          path="/reviews"
+          element={<Review userId={token.user.id} />}
+        />
         <Route path="/allUsers" element={<AllUsers/>}/>
         <Route path="/addActivity" element={<AddActivity/>}/>
       </Routes>
