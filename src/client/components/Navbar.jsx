@@ -29,6 +29,9 @@ const Navbar = ({ token }) => {
           <Link to="/addActivity">
             <button>Add Activity</button>
           </Link>
+          <div>
+            <button onClick>Logout</button>
+          </div>
           <Link>
             <button>Edit Activity</button>
           </Link>
@@ -36,7 +39,7 @@ const Navbar = ({ token }) => {
       ) : (
         <div>
           <div>
-            <WelcomeMessage token = {token}/>
+            <WelcomeMessage token={token} />
             <Link to="/">
               <div>
                 <button onClick>Logout</button>
