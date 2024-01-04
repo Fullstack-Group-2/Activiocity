@@ -19,7 +19,7 @@ const Navbar = ({ token }) => {
       ) : token.user.isAdmin === true ? (
         <div>
           <h2>Adminitrator Dashboard</h2>
-          <Link to="/Users">
+          <Link to="/allUsers">
             <button>All Users</button>
           </Link>
           <Link to="/">
@@ -33,9 +33,6 @@ const Navbar = ({ token }) => {
           </Link>
           <Link>
             <button>Edit Activity</button>
-          </Link>
-          <Link>
-            <button>Delete Activity</button>
           </Link>
         </div>
       ) : (
