@@ -1,6 +1,7 @@
 import { useState, useEfffect, useRef } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "./Form.css";
 
 const Register = ({ setToken }) => {
   const navigate = useNavigate();
@@ -25,20 +26,31 @@ const Register = ({ setToken }) => {
 
   return (
     <>
-      <h1>Register</h1>
-      <div>
-        <input
-          placeholder="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <input
-          placeholder="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+      <div className="form-box">
+        <h2 className="form-name">Register</h2>
+        <form>
+          <div className="field1">
+            <input
+              placeholder="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <input
+              placeholder="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
 
-        <button onClick={handleRegister}>Register</button>
+            <button
+              type="submit"
+              id="submitBtn"
+              className="submitBtn"
+              onClick={handleRegister}
+            >
+              Register
+            </button>
+          </div>
+        </form>
       </div>
     </>
   );

@@ -15,6 +15,7 @@ button {
   background-color: navy;
   cursor: pointer;
   transition: border-color 0.25s;
+  margin: .2vw;
 }
 button:hover {
   border-color: maroon;
