@@ -38,7 +38,11 @@ const Navbar = ({ token }) => {
       ) : (
         <div>
           <div>
+
+          
+
             <h2>Welcome User</h2>
+
             <Link to="/">
               <div>
                 <button onClick>Logout</button>
