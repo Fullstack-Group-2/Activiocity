@@ -47,7 +47,7 @@ const Register = ({ setToken }) => {
               type="submit"
               id="submitBtn"
               className="submitBtn"
-              onSubmit={handleRegister}
+              onClick={handleRegister}
             >
               Register
             </button>
