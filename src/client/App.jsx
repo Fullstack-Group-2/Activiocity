@@ -10,6 +10,7 @@ import Admin from "./components/Admin";
 import Review from "./components/Review";
 import "./App.css";
 import SingleActivities from "./components/singleActvities";
+import AddActivity from "./components/AddActivity";
 
 function App() {
   const [token, setToken] = useState({
@@ -27,8 +28,12 @@ function App() {
         <Route path="/Users" element={<Users />} />
         <Route path="/:id" element={<SingleActivities token={token}/>} />
         <Route path="/Admin" element={<Admin />} />
-        <Route path="/reviews" element={<Review/>}/>
+        <Route
+          path="/reviews"
+          element={<Review userId={token.user.id} />}
+        />
         <Route path="/allUsers" element={<AllUsers/>}/>
+        <Route path="/addActivity" element={<AddActivity/>}/>
       </Routes>
     </div>
   );
