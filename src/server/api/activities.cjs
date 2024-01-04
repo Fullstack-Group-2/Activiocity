@@ -68,7 +68,7 @@ router.delete("/:id",verify, async (req, res) => {
   } else {
 
     try {
-      const deleteReview = await prisma.review.deleteMany({
+      await prisma.review.deleteMany({
         where: {
           activityId:deleteActivity
         }

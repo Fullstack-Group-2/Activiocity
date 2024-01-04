@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const prisma = require("../client.cjs");
 const bcrypt = require("bcrypt");
+const {verify} = require("../utils.cjs")
 // const jwt = require("jsonwebtoken");
 
 // all users.....  /auth/user
@@ -63,6 +64,42 @@ router.get("/", async (req, res, next) => {
     }
   });
 
+  // update an user
+  router.delete("/:id", verify, async (req, res) => {
+    const deleteUserId = +req.params.id;
+  console.log(deleteUserId);
+    if (!req.user) {
+      res.sendStatus(401);
+    } else {
+      try {
+        const userReviews = await prisma.review.findMany({
+          where: {
+            userId:deleteUserId,
+          }
+        });
+        console.log(userReviews);
+        for(let i = 0; i < userReviews.length; i++) {
+        await prisma.comment.deleteMany({
+          where: {
+            reviewId: userReviews.id,
+          }
+        });}
+        await prisma.review.deleteMany({
+          where: {
+            userId: deleteUserId,
+          }
+        });
+        const deletedResult = await prisma.user.delete({
+          where: {
+            id: deleteUserId,
+          },
+        });
+        res.send(deletedResult);
+      } catch (err) {
+        res.send(err);
+      }
+    }
+  });
 module.exports = router;
 
 

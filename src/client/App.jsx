@@ -14,7 +14,7 @@ import SingleActivities from "./components/singleActvities";
 function App() {
   const [token, setToken] = useState({
     token: "main",
-    user: { username: "", password: "", isAdmin: true },
+    user: { username: "", password: "", isAdmin: false },
   });
 
   return (
