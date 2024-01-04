@@ -35,6 +35,12 @@ const Navbar = ({ token }) => {
           <Link>
             <button>Edit Activity</button>
           </Link>
+          <Link to="/">
+            <div>
+              <button onClick>Logout</button>
+            </div>
+            <button>All Activities</button>
+          </Link>
         </div>
       ) : (
         <div>
