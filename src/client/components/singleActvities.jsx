@@ -3,10 +3,24 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import CreateReview from "./createReview";
 
-const SingleActivities = () => {
+const SingleActivities = (token) => {
+  console.log(token.token);
   const { id } = useParams();
   const [activity, setActivity] = useState({});
   console.log("activity", activity);
+
+const deleteActivity =async() => {
+  try {
+    const response = await axios.delete(`/api/activities/${id}`,
+    {headers: {
+      Authorization: "Bearer " + window.localStorage.getItem("TOKEN"),
+    }}
+    );
+    console.log(response);
+  } catch (error) {
+    console.log(error);
+  }
+}
 
   useEffect(() => {
     const getActivity = async () => {
@@ -24,6 +38,8 @@ const SingleActivities = () => {
 
   return (
     <div>
+      {token.token.user.isAdmin === true?
+      <button onClick={deleteActivity}>Delete Activity</button> : <div></div>}
       <div>
         <h3>{activity.title}</h3>
         <h3>{activity.description}</h3>
@@ -37,7 +53,6 @@ const SingleActivities = () => {
         </h3>
         <img src={activity.imageURL} width="640" height="426" />
       </div>
-
       <div>
         <CreateReview/>
       </div>

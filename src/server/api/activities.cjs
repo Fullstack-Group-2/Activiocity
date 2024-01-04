@@ -61,16 +61,21 @@ router.patch("/", async (re, res) => {
 });
 
 //delete activity
-router.delete("/", async (req, res) => {
-  const deleteActivity = req.body;
-
+router.delete("/:id",verify, async (req, res) => {
+  const deleteActivity = parseInt(req.params.id);
   if (!req.user) {
     res.sendStatus(401);
   } else {
+
     try {
+      const deleteReview = await prisma.review.deleteMany({
+        where: {
+          activityId:deleteActivity
+        }
+      });
       const result = await prisma.activity.delete({
         where: {
-          id: [id],
+          id: deleteActivity,
         },
       });
       res.send(result);
