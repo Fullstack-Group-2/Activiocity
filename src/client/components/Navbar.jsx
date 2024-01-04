@@ -24,11 +24,8 @@ const Navbar = ({ token }) => {
           </Link>
           <Link to="/">
             <button>All Activities</button>
-            <div>
-              <button onClick>Logout</button>
-            </div>
           </Link>
-          <Link>
+          <Link to="/addActivity">
             <button>Add Activity</button>
           </Link>
           <Link>

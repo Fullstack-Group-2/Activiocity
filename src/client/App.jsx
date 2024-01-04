@@ -10,6 +10,7 @@ import Admin from "./components/Admin";
 import Review from "./components/Review";
 import "./App.css";
 import SingleActivities from "./components/singleActvities";
+import AddActivity from "./components/AddActivity";
 
 function App() {
   const [token, setToken] = useState({
@@ -29,6 +30,7 @@ function App() {
         <Route path="/Admin" element={<Admin />} />
         <Route path="/reviews" element={<Review/>}/>
         <Route path="/allUsers" element={<AllUsers/>}/>
+        <Route path="/addActivity" element={<AddActivity/>}/>
       </Routes>
     </div>
   );

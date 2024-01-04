@@ -25,9 +25,9 @@ router.get("/:id", async (req, res) => {
 });
 
 //create new activity
-router.post("/", async (req, res) => {
+router.post("/", verify, async (req, res) => {
   const newActivity = req.body;
-
+console.log(newActivity);
   if (!req.user) {
     res.sendStatus(401);
   } else {
