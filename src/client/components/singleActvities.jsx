@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import CreateReview from "./createReview";
 
 const SingleActivities = (token) => {
-  console.log(token.token);
   const { id } = useParams();
   const [activity, setActivity] = useState({});
-  console.log("activity", activity);
+  const navigate = useNavigate();
 
 const deleteActivity =async() => {
   try {
@@ -16,7 +16,7 @@ const deleteActivity =async() => {
       Authorization: "Bearer " + window.localStorage.getItem("TOKEN"),
     }}
     );
-    console.log(response);
+    navigate("/Admin");
   } catch (error) {
     console.log(error);
   }

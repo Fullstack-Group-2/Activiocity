@@ -31,9 +31,6 @@ const Navbar = ({ token }) => {
           <Link>
             <button>Edit Activity</button>
           </Link>
-          <Link>
-            <button>Delete Activity</button>
-          </Link>
         </div>
       ) : (
         <div>

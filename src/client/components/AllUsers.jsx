@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
 const AllUsers = () => {
   const [allUsers, setAllUsers] = useState([]);
+  const navigate = useNavigate();
 
   const filtered = allUsers.filter((thisUser) =>
     {return thisUser.isAdmin === false}
@@ -16,7 +18,7 @@ const AllUsers = () => {
         Authorization: "Bearer " + window.localStorage.getItem("TOKEN"),
       }}
       );
-      console.log(response);
+      navigate("/Admin");
     } catch (error) {
       console.log(error);
     }
