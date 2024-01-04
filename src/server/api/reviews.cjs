@@ -15,12 +15,20 @@ router.get("/", async (req, res) => {
 });
 
 //get specific review from database
-router.get("/:id", async (req, res) => {
-  const reviewId = parseInt(req.params.id);
-  const review = await prisma.review.findUnique({
-    where: { id: reviewId },
-  });
-  res.send(review || {});
+router.get("/:userId", async (req, res) => {
+  const userId = parseInt(req.params.userId);
+  try {
+    const reviews = await prisma.review.findMany({
+      where: {
+        userId: userId, 
+      },
+    });
+
+    res.send(reviews);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error fetching reviews");
+  }
 });
 
 //create new review if auth
