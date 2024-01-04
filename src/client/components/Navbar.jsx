@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import WelcomeMessage from "./WelcomeMessage";
 
 const Navbar = ({ token }) => {
   return (
@@ -35,11 +36,7 @@ const Navbar = ({ token }) => {
       ) : (
         <div>
           <div>
-
-          
-
-            <h2>Welcome User</h2>
-
+            <WelcomeMessage token = {token}/>
             <Link to="/">
               <div>
                 <button onClick>Logout</button>
