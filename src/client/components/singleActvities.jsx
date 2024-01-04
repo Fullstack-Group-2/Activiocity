@@ -39,7 +39,7 @@ const SingleActivities = () => {
       </div>
 
       <div>
-        <CreateReview/>
+        <CreateReview id = {id} />
       </div>
     </div>
   );

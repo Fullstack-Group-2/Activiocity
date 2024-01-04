@@ -25,10 +25,10 @@ router.get("/:id", async (req, res) => {
 
 //create new review if auth
 router.post("/", verify, async (req, res) => {
-  const { review, rating, userId } = req.body;
+  const { review, rating, id } = req.body;
 
-  if (!userId) {
-    return res.status(400).send("userId is missing");
+  if (!req.user) {
+    return res.status(400).send("not a user");
   }
 
   try {
@@ -36,10 +36,13 @@ router.post("/", verify, async (req, res) => {
       data: {
         review,
         rating: parseInt(rating), // Assuming rating is sent as a number
-        user: {
-          connect: { id: parseInt(userId) } // Connecting the review to the user
-        }
-      }
+        user_id: {
+          connect: { id: parseInt(req.user.id) },
+        }, // Connecting the review to the user
+        activity_id: {
+          connect: { id: parseInt(id.id) },
+        },
+      },
     });
 
     res.status(201).json(createdReview);

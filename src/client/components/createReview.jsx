@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const CreateReview = ({ userId }) => {
+const CreateReview = ( id ) => {
   const [review, setReview] = useState("");
   const [rating, setRating] = useState(0);
   const [createdReview, setCreatedReview] = useState(null);
@@ -12,7 +12,7 @@ const CreateReview = ({ userId }) => {
     try {
       const { data } = await axios.post(
         "/api/reviews",
-        { review, rating, userId }, // Include userId in the request
+        { review, rating, id }, // Include userId in the request
         {
           headers: {
             Authorization: "Bearer " + window.localStorage.getItem("TOKEN"),
