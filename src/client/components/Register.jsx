@@ -18,7 +18,7 @@ const Register = ({ setToken }) => {
       });
       localStorage.setItem("TOKEN", token.token);
       setToken(token.token);
-      navigate("/");
+      navigate("/AllActivities");
     } catch (error) {
       console.error(error);
     }
@@ -28,7 +28,7 @@ const Register = ({ setToken }) => {
     <>
       <div className="form-box">
         <h2 className="form-name">Register</h2>
-        <form>
+        <form action="/Login" method="get" target="_blank">
           <div className="field1">
             <input
               placeholder="username"
