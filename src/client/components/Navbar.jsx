@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = ({ token }) => {
- 
   return (
     <>
       {token.token === "main" ? (
@@ -26,8 +25,8 @@ const Navbar = ({ token }) => {
           <Link to="/">
             <button>All Activities</button>
             <div>
-            <button onClick>Logout</button>
-          </div>
+              <button onClick>Logout</button>
+            </div>
           </Link>
           <Link>
             <button>Add Activity</button>
@@ -45,7 +44,7 @@ const Navbar = ({ token }) => {
             <h2>Welcome User</h2>
             <Link to="/">
               <div>
-               <button onClick>Logout</button>
+                <button onClick>Logout</button>
               </div>
               <button>All Activities</button>
             </Link>
@@ -53,8 +52,7 @@ const Navbar = ({ token }) => {
               <button>All My Reviews/Comments</button>
             </Link>
           </div>
-          <div>
-          </div>
+          <div></div>
         </div>
       )}
     </>
