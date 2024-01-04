@@ -20,7 +20,7 @@ router.get("/:userId", async (req, res) => {
   try {
     const reviews = await prisma.review.findMany({
       where: {
-        userId: userId, 
+        userId: userId,
       },
     });
 
@@ -79,22 +79,29 @@ router.patch("/", verify, async (req, res) => {
 });
 
 //if auth delete review
-router.delete("/", verify, async (req, res) => {
-  const deleteReview = req.body;
+router.delete("/:reviewId", verify, async (req, res) => {
+  const reviewId = parseInt(req.params.reviewId);
 
-  if (!req.user) {
-    res.sendStatus(401);
-  } else {
-    try {
+  try {
+    const reviewExist = await prisma.review.findUnique({
+      where: { id: reviewId },
+    });
+    if (reviewExist) {
+      await prisma.comment.deleteMany({
+        where: { reviewId: reviewId },
+      });
+
       const result = await prisma.review.delete({
         where: {
-          id: [id],
+          id: reviewId,
         },
       });
       res.send(result);
-    } catch (err) {
-      res.send(err);
     }
+    
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error deleting review");
   }
 });
 
