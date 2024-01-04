@@ -24,24 +24,28 @@ router.get("/:id", async (req, res) => {
 });
 
 //create new review if auth
-router.post("/", verify, async (req, res, next) => {
-  const newReview = req.body;
-  console.log("NEW REVIEW", newReview);
-  if (!req.user) {
-   
-    res.sendStatus(401);
-  } else {
-    try {
-      
-      const result = await prisma.review.create({
-        data: newReview,
-      });
-      console.log("RESULT" , result);
-      res.send(result);
-    } catch (err) {
-      console.log("ERROR", err);
-      next(err);
-    }
+router.post("/", verify, async (req, res) => {
+  const { review, rating, userId } = req.body;
+
+  if (!userId) {
+    return res.status(400).send("userId is missing");
+  }
+
+  try {
+    const createdReview = await prisma.review.create({
+      data: {
+        review,
+        rating: parseInt(rating), // Assuming rating is sent as a number
+        user: {
+          connect: { id: parseInt(userId) } // Connecting the review to the user
+        }
+      }
+    });
+
+    res.status(201).json(createdReview);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Error creating review");
   }
 });
 
