@@ -7,7 +7,7 @@ const AllActivities = () => {
   const [search, setSearch] = useState("");
 
   const filtered = activities.filter((activity) =>
-    activity.title.includes(search)
+    activity.title.toLowerCase().includes(search.toLowerCase())
   );
 
   useEffect(() => {
