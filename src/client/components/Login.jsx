@@ -29,7 +29,7 @@ const Login = ({ setToken }) => {
     <>
       <div className="form-box">
         <h2 className="form-name">Login</h2>
-        <form>
+        <div className="form">
           <div className="field1">
             <input
               placeholder="username"
@@ -51,7 +51,7 @@ const Login = ({ setToken }) => {
             </button>
           </div>
           <h2>{errorMsg}</h2>
-        </form>
+        </div>
       </div>
     </>
   );
