@@ -31,6 +31,7 @@ const Register = ({ setToken }) => {
         <form action="/Login" method="get" target="_blank">
           <div className="field1">
             <input
+              required
               placeholder="username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
