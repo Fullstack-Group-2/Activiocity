@@ -38,7 +38,7 @@ const Navbar = ({ token }) => {
       ) : (
         <div>
           <div>
-            <h2>Welcome {user.username}</h2>
+            <h2>Welcome</h2>
             <Link to="/">
               <div>
                 <button onClick>Logout</button>
