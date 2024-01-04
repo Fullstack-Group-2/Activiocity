@@ -54,7 +54,7 @@ const deleteActivity =async() => {
         <img src={activity.imageURL} width="640" height="426" />
       </div>
       <div>
-        <CreateReview/>
+        <CreateReview id = {id} />
       </div>
     </div>
   );
