@@ -27,9 +27,9 @@ function App() {
         <Route path="/Users" element={<Users />} />
         <Route path="/:id" element={<SingleActivities token={token}/>} />
         <Route path="/Admin" element={<Admin />} />
-        <Route
+       <Route
           path="/reviews"
-          element={<Review userId={token.user.id} />}
+          element={<Review userId={token.user.id} />} // Pass the user ID to the Review component
         />
         <Route path="/allUsers" element={<AllUsers/>}/>
       </Routes>
