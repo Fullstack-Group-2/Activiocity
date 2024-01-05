@@ -66,31 +66,18 @@ a:hover{
   color: navy;
 }
 
-.activityMain{
-  min-width:50vw;
-  min-height: 30vh;
- border: none;
-  
-}
-
 .container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-
-.activityFlexBox{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  min-width: 20vw;
-  max-width: 30vw;
+.activityFlexBox {
+  flex: 0 0 calc(30% - 2vw); 
   height: 50vh;
   border: solid navy 1vw;
   border-radius: 10px;
   margin: 1vw;
-  padding: 5vw ;
-  position:relative; 
-  
+  padding: 5vw;
+  position: relative;
 }

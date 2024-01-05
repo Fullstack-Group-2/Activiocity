@@ -45,6 +45,9 @@ const AllActivities = () => {
                 <Link to={`/${activities.id}`}>
                   <h3 id="activityName">Name: {activities.title}</h3>
                 </Link>
+                <br></br>
+                <img src={activities.imageURL} width="220" />
+
                 <h3 id="activityDesc">Description: {activities.description}</h3>
               </div>
             </div>
