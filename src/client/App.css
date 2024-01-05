@@ -52,3 +52,44 @@ a:hover{
 #activityDesc{
   color:darkgoldenrod;
 }
+.search{
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: grey;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  margin: .2vw;
+  color: navy;
+}
+
+.activityMain{
+  min-width:50vw;
+  min-height: 30vh;
+ border: none;
+  
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+
+.activityFlexBox{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  min-width: 20vw;
+  max-width: 30vw;
+  height: 50vh;
+  border: solid navy 1vw;
+  border-radius: 10px;
+  margin: 1vw;
+  padding: 5vw ;
+  position:relative; 
+}

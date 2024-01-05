@@ -7,7 +7,7 @@ const AllActivities = () => {
   const [search, setSearch] = useState("");
 
   const filtered = activities.filter((activity) =>
-    activity.title.toLowerCase().includes(search.toLowerCase())
+    activity.title.includes(search)
   );
 
   useEffect(() => {
@@ -26,31 +26,37 @@ const AllActivities = () => {
   return (
     <>
       <h1>All Activities</h1>
-      <div id="activityBox">
-        <input
-          placeholder="search..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
-        <button onClick={() => setSearch("")}>X</button>
-        {search.length == 0
-          ? activities.map((activities) => (
-              <div key={activities.id} style={{ border: "2px solid black" }}>
+
+      <input
+        className="search"
+        placeholder="search..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
+      <button onClick={() => setSearch("")}>X</button>
+      {search.length == 0
+        ? activities.map((activities) => (
+            <div
+              className="activityMain"
+              key={activities.id}
+              // style={{ border: "2px solid black" }}
+            >
+              <div className="activityFlexBox">
                 <Link to={`/${activities.id}`}>
                   <h3 id="activityName">Name: {activities.title}</h3>
                 </Link>
                 <h3 id="activityDesc">Description: {activities.description}</h3>
               </div>
-            ))
-          : filtered.map((activities) => (
-              <div key={activities.id} style={{ border: "2px solid black" }}>
-                <Link to={`/${activities.id}`}>
-                  <h3>Name: {activities.title}</h3>
-                </Link>
-                <h3>Description: {activities.description}</h3>
-              </div>
-            ))}
-      </div>
+            </div>
+          ))
+        : filtered.map((activities) => (
+            <div key={activities.id}>
+              <Link to={`/${activities.id}`}>
+                <h3>Name: {activities.title}</h3>
+              </Link>
+              <h3>Description: {activities.description}</h3>
+            </div>
+          ))}
     </>
   );
 };
