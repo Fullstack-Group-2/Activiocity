@@ -7,7 +7,7 @@ const AllActivities = () => {
   const [search, setSearch] = useState("");
 
   const filtered = activities.filter((activity) =>
-    activity.title.includes(search)
+    activity.title.toLowerCase().includes(search.toLowerCase())
   );
 
   useEffect(() => {
@@ -39,7 +39,7 @@ const AllActivities = () => {
             <div
               className="activityMain"
               key={activities.id}
-              // style={{ border: "2px solid black" }}
+              style={{ border: "none" }}
             >
               <div className="activityFlexBox">
                 <Link to={`/${activities.id}`}>
@@ -50,7 +50,7 @@ const AllActivities = () => {
             </div>
           ))
         : filtered.map((activities) => (
-            <div key={activities.id}>
+            <div key={activities.id} style={{ border: "none" }}>
               <Link to={`/${activities.id}`}>
                 <h3>Name: {activities.title}</h3>
               </Link>
