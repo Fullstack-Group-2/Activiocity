@@ -12,13 +12,16 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: navy;
+  background-color: #f6f7f8;
+  color:#3681f7;
   cursor: pointer;
   transition: border-color 0.25s;
   margin: .2vw;
 }
 button:hover {
-  border-color: maroon;
+  border-color: #abd2b6;
+  background-color: #f9d97c;
+
 }
 button:focus,
 button:focus-visible {
@@ -26,12 +29,12 @@ button:focus-visible {
 }
 
 #activityBox{
-  background-color: navy;
+  background-color: #abd2b6;
   border-radius: 5px;
 }
 
 h1{
-  color: burlywood;
+  color: #abd2b6;
 }
 
 h2{
@@ -42,15 +45,15 @@ h2{
 /* a is all the activity titles and got rid of the underlining after clicking*/
 a{
   font-weight: 500;
-  color: maroon;
+  color: navy;
   text-decoration: inherit;
 }
 a:hover{
-  color:darkolivegreen;
+  color:#f6f7f8;
 }
 
 #activityDesc{
-  color:darkgoldenrod;
+  color:#f9d97c;
 }
 .search{
   border-radius: 8px;
@@ -59,7 +62,7 @@ a:hover{
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: grey;
+  background-color: #f6f7f8;
   cursor: pointer;
   transition: border-color 0.25s;
   margin: .2vw;
